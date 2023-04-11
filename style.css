@@ -2,12 +2,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 660px;
-  height: 660px;
+  width: 41.25rem;
+  height: 41.25rem;
   background-color: #202020;
   border-radius: 4px;
 }
 
+/* Do not specify any  */
 .grid-container{
     display: grid;
     grid-template-columns: repeat(16, 1fr);
@@ -18,8 +19,10 @@
     background-color: #eee;
 }
 
+
+/* 1 rem is usually equivalent to 16px */
 .square {
     background-color: #fff;
-    width: 16px;
-    height: 16px;
+    width: 2rem;
+    height: 2rem;
 }
