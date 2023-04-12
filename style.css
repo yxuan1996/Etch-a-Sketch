@@ -39,3 +39,16 @@
   width: 10rem;
 }
 
+/* .btn:focus, */
+/* .btn:active, */
+.btn.active {
+  /* outline: 5px solid black; */
+  border: 3px solid black;
+  
+}
+
+/* remove the outline when the button is not active or focused */
+.btn:not(:active):not(:focus) {
+  outline: none;
+}
+

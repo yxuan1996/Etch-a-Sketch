@@ -23,11 +23,11 @@
         <div class="col-auto">
           <!-- Vertical Flexbox to hold the option buttons -->
           <div class="button-column">
-            <button type="button" class="btn btn-primary">Pen Mode</button>
-            <input type="button" class="btn btn-secondary coloris" id="colorpicker" value="Pen Color">
-            <button type="button" class="btn btn-success">Random Color</button>
-            <button type="button" class="btn btn-danger">Eraser Mode</button>
-
+            <button type="button" class="btn btn-primary active" data-bs-toggle="button" data-bs-target="#penMode"  aria-pressed="true" id="penMode">Pen Mode</button>
+            <input type="button" class="btn btn-secondary coloris" id="colorpicker" value="Pen Color" >
+            <button type="button" class="btn btn-success" data-bs-toggle="button" data-bs-target="#randomMode"  id="randomMode">Random Color</button>
+            <button type="button" class="btn btn-danger" data-bs-toggle="button" data-bs-target="#eraserMode"  id="eraserMode">Eraser Mode</button>
+            <button type="button" class="btn btn-warning" data-bs-toggle="button" data-bs-target="#clearMode"  id="clearMode">Clear Grid</button>
           </div>
           
           <!-- Brush Color

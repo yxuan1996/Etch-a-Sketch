@@ -8,6 +8,7 @@ var mouseState = "up"
 
 // Default Pen Color
 var penColor = "#000"
+var penState = "penMode"
 
 function mouseDown(ev) {
   mouseState = "down";
@@ -23,6 +24,16 @@ function mouseUp(ev) {
   console.log('up state you cannot drag now because you are not holding your mouse')
 }
 
+// Function to generate random colors RGBA
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
 
 // Create 16x16 grid of square divs
 for (let i = 0; i < 16; i++) {
@@ -31,12 +42,25 @@ for (let i = 0; i < 16; i++) {
     square.classList.add("square");
     square.id = i.toString() + "-" + j.toString();
     square.addEventListener("mousedown", () => {
-      square.style.backgroundColor = penColor;
+      if (penState == 'penMode') {
+        square.style.backgroundColor = penColor;
+      } else if (penState == 'randomMode') {
+        square.style.backgroundColor = getRandomColor();
+      } else if (penState == 'eraserMode') {
+        square.style.backgroundColor = "#ffffff";
+      };
+      
     });
     square.addEventListener("mouseenter", (e) => {
       console.log(mouseState);
       if (mouseState == 'down'){
-        square.style.backgroundColor = penColor;
+        if (penState == 'penMode') {
+          square.style.backgroundColor = penColor;
+        } else if (penState == 'randomMode') {
+          square.style.backgroundColor = getRandomColor();
+        } else if (penState == 'eraserMode') {
+          square.style.backgroundColor = "#ffffff";
+        };
       }
       
     });
@@ -51,7 +75,10 @@ Coloris({
   themeMode: 'dark',
   autoClose: true,
   // Defines what happens after a new color is selected
-  onChange: (color) => penColor = color,
+  onChange: (color) => {
+    penColor = color;
+    penState = "penMode";
+  },
   swatches: [
     "#000",
     '#264653',
@@ -67,4 +94,30 @@ Coloris({
     '#48cae4',
     '#ffffff',
   ],
+});
+
+// Ensure that only one button can be clicked at a time
+const buttons = document.querySelectorAll('.button-column .btn');
+
+buttons.forEach((button) => {
+  button.addEventListener('click', () => {
+    buttons.forEach((b) => {
+      if (b !== button) {
+        b.classList.remove('active');
+      }
+    });
+    console.log(button.id + ' is active');
+    penState = button.id;
+
+  });
+});
+
+// Clear the Grid
+const clear = document.querySelector('#clearMode');
+
+clear.addEventListener('click', () => {
+  const docGrid = document.querySelectorAll('.square');
+  docGrid.forEach((cell) => {
+    cell.style.backgroundColor = "#ffffff";
+  });
 });

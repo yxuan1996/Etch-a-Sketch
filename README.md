@@ -30,6 +30,7 @@ For the color picker, we use the Coloris JS library.
 - https://www.cssscript.com/color-picker-coloris/
 - https://github.com/mdbassit/Coloris
 
+For some reason, bootstrap button styles are not showing when the buttons are clicked. Thus, we need to manually define the CSS for the button active state. We use the `border` property instead of the `outline` property. 
 
-
+To ensure that only one button can be selected at a time, we query for all buttons in the button-column and add an event listener. When a button is clicked, we remove the active class for all of the other buttons. 
 
