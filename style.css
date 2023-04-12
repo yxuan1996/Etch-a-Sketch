@@ -8,7 +8,7 @@
   border-radius: 4px;
 }
 
-/* Do not specify any  */
+/* Do not specify any height and width properties for the grid container */
 .grid-container{
     display: grid;
     grid-template-columns: repeat(16, 1fr);
@@ -19,10 +19,23 @@
     background-color: #eee;
 }
 
-
 /* 1 rem is usually equivalent to 16px */
 .square {
     background-color: #fff;
     width: 2rem;
     height: 2rem;
 }
+
+.button-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 1rem;
+  margin: 2rem;
+}
+
+.btn {
+  width: 10rem;
+}
+

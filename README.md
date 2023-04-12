@@ -8,7 +8,7 @@ To preview this webpage, run a server
 python -m http.server 8000
 ```
 
-### Notes
+### Development Notes
 #### Layout
 We need to wrap the grid-container in a grid-wrapper. 
 
@@ -22,4 +22,14 @@ We also need to specify a fixed width and height for the wrapper. Do not specify
 OnClick and mousedown only works for one cell. We want to ensure that when the mouse is clicked and dragged along the screen, all the cells along the path get filled.
 
 To implement the 'sticky click' feature, we implement a global function that listens for mouseDown events throughout the entire HTML document. We also implement an eventListener that is triggered when a mouse enters the cell. We then fill the cell if the mouse is clicked. 
+
+#### Side Panel
+Create a side panel with buttons to change color, use random colors (rainbow), erase a single cell, clear the entire grid and save the image. 
+
+For the color picker, we use the Coloris JS library. 
+- https://www.cssscript.com/color-picker-coloris/
+- https://github.com/mdbassit/Coloris
+
+
+
 
